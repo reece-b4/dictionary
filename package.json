@@ -1,0 +1,27 @@
+{
+  "main": "app.js",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/app.js",
+    "start": "concurrently npm:start:*",
+    "test": "npm run seedTest && jest",
+    "seedTest": "psql -f ./src/back-end/db/seedTestDB.sql"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^28.1.1",
+    "@types/node": "^17.0.42",
+    "@types/pg": "^8.6.5",
+    "@types/supertest": "^2.0.12",
+    "jest": "^28.1.1",
+    "supertest": "^6.2.3",
+    "ts-jest": "^28.0.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "pg": "^8.7.3",
+    "tslint": "^6.1.3"
+  }
+}
